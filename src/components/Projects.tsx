@@ -255,6 +255,7 @@ const Projects = () => {
 
   const handleGithubClick = (e: React.MouseEvent) => {
     e.preventDefault()
+    console.log('GitHub button clicked - showing modal')
     setShowGithubModal(true)
   }
 

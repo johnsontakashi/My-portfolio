@@ -4,6 +4,7 @@ import { useState } from 'react'
 const Projects = () => {
   const [filter, setFilter] = useState('all')
   const [visibleProjects, setVisibleProjects] = useState(6)
+  const [showCodeModal, setShowCodeModal] = useState(false)
   const PROJECTS_PER_PAGE = 6
 
   const projects = [
@@ -246,6 +247,11 @@ const Projects = () => {
     setVisibleProjects(PROJECTS_PER_PAGE) // Reset to show first 6 projects when filter changes
   }
 
+  const handleCodeClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setShowCodeModal(true)
+  }
+
   return (
     <section id="projects" className="py-20 bg-gray-800/50">
       <div className="container mx-auto px-6">
@@ -302,14 +308,12 @@ const Projects = () => {
                   </div>
                   
                   <div className="flex gap-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={handleCodeClick}
                       className="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 text-gray-300 text-center rounded-lg hover:bg-gray-700 transition-colors duration-300 text-sm"
                     >
                       Code
-                    </a>
+                    </button>
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -385,14 +389,12 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex gap-3">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={handleCodeClick}
                     className="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 text-gray-300 text-center rounded-lg hover:bg-gray-700 transition-colors duration-300 text-sm"
                   >
                     Code
-                  </a>
+                  </button>
                   <a
                     href={project.liveUrl}
                     target="_blank"
@@ -437,6 +439,54 @@ const Projects = () => {
           </a>
         </div>
       </div>
+
+      {/* Custom Code Access Modal */}
+      {showCodeModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-100">
+            <div className="p-6">
+              {/* Icon */}
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-indigo-600/20 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 7C13.4 7 14.8 8.6 14.8 10.2V11H16V18H8V11H9.2V10.2C9.2 8.6 10.6 7 12 7M12 8.2C11.2 8.2 10.4 8.7 10.4 10.2V11H13.6V10.2C13.6 8.7 12.8 8.2 12 8.2Z"/>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-white text-center mb-3">
+                Code Access Required
+              </h3>
+
+              {/* Message */}
+              <p className="text-gray-300 text-center leading-relaxed mb-6">
+                First, click <span className="text-indigo-400 font-semibold">Live Demo</span> to check out the site. 
+                If you like it, ask the administrator for permission to use the site's code.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowCodeModal(false)}
+                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition-all duration-300 font-medium"
+                >
+                  Got It
+                </button>
+                <button
+                  onClick={() => {
+                    setShowCodeModal(false)
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="flex-1 px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium"
+                >
+                  Contact Admin
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

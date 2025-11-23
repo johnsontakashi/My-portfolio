@@ -3,6 +3,8 @@ import { useState } from 'react'
 
 const Projects = () => {
   const [filter, setFilter] = useState('all')
+  const [visibleProjects, setVisibleProjects] = useState(6)
+  const PROJECTS_PER_PAGE = 6
 
   const projects = [
     {
@@ -109,33 +111,33 @@ const Projects = () => {
       id: 10,
       title: 'SaaS Landing Page MVP',
       description: 'A modern, conversion-optimized landing page for SaaS products with interactive demos, pricing tables, and customer testimonials.',
-      image: '/images/project10.jpg',
+      image: '/images/standard10.png',
       technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Stripe'],
       category: 'frontend',
       githubUrl: 'https://github.com/johnsontakashi/saas-landing-mvp',
-      liveUrl: 'https://saas-landing-demo.vercel.app',
+      liveUrl: 'https://shipped.club/',
       featured: false
     },
     {
       id: 11,
-      title: 'Portfolio Dashboard MVP',
-      description: 'An interactive portfolio analytics dashboard with real-time visitor tracking, project performance metrics, and contact form management.',
-      image: '/images/project11.jpg',
+      title: 'Analytics Dashboard MVP',
+      description: 'An interactive analytics dashboard with real-time visitor tracking, performance metrics, and comprehensive data visualization for business insights.',
+      image: '/images/standard11.png',
       technologies: ['Vue.js', 'Chart.js', 'Firebase', 'CSS3', 'Google Analytics'],
       category: 'frontend',
-      githubUrl: 'https://github.com/johnsontakashi/portfolio-dashboard-mvp',
-      liveUrl: 'https://portfolio-dashboard-demo.netlify.app',
+      githubUrl: 'https://github.com/johnsontakashi/analytics-dashboard-mvp',
+      liveUrl: 'https://www.web-stat.com/',
       featured: false
     },
     {
       id: 12,
       title: 'Event Booking MVP',
       description: 'A sleek event booking interface with calendar integration, seat selection, and payment processing for conferences and workshops.',
-      image: '/images/project12.jpg',
+      image: '/images/standard12.png',
       technologies: ['React', 'TypeScript', 'Material-UI', 'Calendar API', 'PayPal'],
       category: 'frontend',
       githubUrl: 'https://github.com/johnsontakashi/event-booking-mvp',
-      liveUrl: 'https://event-booking-demo.herokuapp.com',
+      liveUrl: 'https://www.ticketbud.com/',
       featured: false
     },
     // Backend Projects
@@ -143,11 +145,11 @@ const Projects = () => {
       id: 13,
       title: 'Multi-Tenant API Gateway',
       description: 'A scalable API gateway with multi-tenant architecture, rate limiting, authentication, and real-time monitoring for enterprise applications.',
-      image: '/images/project13.jpg',
+      image: '/images/standard13.png',
       technologies: ['Node.js', 'Express', 'Redis', 'JWT', 'Docker', 'MongoDB'],
       category: 'backend',
       githubUrl: 'https://github.com/johnsontakashi/api-gateway',
-      liveUrl: 'https://api-gateway-demo.herokuapp.com/docs',
+      liveUrl: 'https://www.krakend.io/',
       featured: false
     },
     {
@@ -232,6 +234,17 @@ const Projects = () => {
     : projects.filter(project => project.category === filter)
 
   const featuredProjects = projects.filter(project => project.featured)
+  const displayedProjects = filteredProjects.slice(0, visibleProjects)
+  const hasMoreProjects = visibleProjects < filteredProjects.length
+
+  const loadMoreProjects = () => {
+    setVisibleProjects(prev => prev + PROJECTS_PER_PAGE)
+  }
+
+  const handleFilterChange = (newFilter: string) => {
+    setFilter(newFilter)
+    setVisibleProjects(PROJECTS_PER_PAGE) // Reset to show first 6 projects when filter changes
+  }
 
   return (
     <section id="projects" className="py-20 bg-gray-800/50">
@@ -317,7 +330,7 @@ const Projects = () => {
           {categories.map((category) => (
             <button
               key={category.id}
-              onClick={() => setFilter(category.id)}
+              onClick={() => handleFilterChange(category.id)}
               className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ${
                 filter === category.id
                   ? 'bg-indigo-600 text-white'
@@ -331,7 +344,7 @@ const Projects = () => {
 
         {/* All Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <div
               key={project.id}
               className="bg-gray-900 rounded-lg overflow-hidden shadow-xl card-hover border border-gray-700"
@@ -393,6 +406,18 @@ const Projects = () => {
             </div>
           ))}
         </div>
+
+        {/* View More Button */}
+        {hasMoreProjects && (
+          <div className="text-center mt-12">
+            <button
+              onClick={loadMoreProjects}
+              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              View More Projects ({filteredProjects.length - visibleProjects} remaining)
+            </button>
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="text-center mt-16">

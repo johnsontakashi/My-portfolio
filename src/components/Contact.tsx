@@ -83,7 +83,7 @@ const Contact = () => {
             Get In <span className="gradient-text">Touch</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Let's work together to bring your ideas to life. I'm always open to discussing new opportunities.
+            Let&apos;s work together to bring your ideas to life. I&apos;m always open to discussing new opportunities.
           </p>
         </div>
 
@@ -91,11 +91,11 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Let&apos;s Connect</h3>
               <p className="text-gray-400 mb-8 leading-relaxed">
-                I'm currently available for freelance work and full-time opportunities. 
+                I&apos;m currently available for freelance work and full-time opportunities. 
                 Whether you have a project in mind, want to collaborate, or just want to say hello, 
-                I'd love to hear from you!
+                I&apos;d love to hear from you!
               </p>
             </div>
 

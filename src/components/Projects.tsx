@@ -70,6 +70,152 @@ const Projects = () => {
       githubUrl: 'https://github.com/johnsontakashi/weather-app',
       liveUrl: 'https://weawow.com',
       featured: false
+    },
+    {
+      id: 7,
+      title: 'E-Commerce Site (WordPress)',
+      description: 'A comprehensive e-commerce solution built with WordPress, WooCommerce, and custom themes featuring payment gateway integration and inventory management.',
+      image: '/images/standard7.png',
+      technologies: ['WordPress', 'WooCommerce', 'PHP', 'MySQL', 'Custom Themes'],
+      category: 'fullstack',
+      githubUrl: 'https://github.com/johnsontakashi/wordpress-ecommerce',
+      liveUrl: 'https://www.woolcouturecompany.com/',
+      featured: false
+    },
+    {
+      id: 8,
+      title: 'E-Commerce Platform (PHP/Laravel)',
+      description: 'A robust e-commerce platform developed with PHP Laravel framework featuring advanced admin dashboard, multi-vendor support, and real-time analytics.',
+      image: '/images/standard8.png',
+      technologies: ['PHP', 'Laravel', 'MySQL', 'Bootstrap', 'Stripe API'],
+      category: 'fullstack',
+      githubUrl: 'https://github.com/johnsontakashi/laravel-ecommerce',
+      liveUrl: 'https://daalder.com/',
+      featured: false
+    },
+    {
+      id: 9,
+      title: 'Custom CMS & E-Commerce',
+      description: 'A bespoke content management system with integrated e-commerce functionality, built from scratch with modern PHP architecture and RESTful APIs.',
+      image: '/images/standard9.png',
+      technologies: ['PHP', 'MySQL', 'jQuery', 'REST API', 'PayPal Integration'],
+      category: 'fullstack',
+      githubUrl: 'https://github.com/johnsontakashi/custom-cms-ecommerce',
+      liveUrl: 'https://demo.bagisto.com/',
+      featured: false
+    },
+    // Frontend MVP Projects
+    {
+      id: 10,
+      title: 'SaaS Landing Page MVP',
+      description: 'A modern, conversion-optimized landing page for SaaS products with interactive demos, pricing tables, and customer testimonials.',
+      image: '/images/project10.jpg',
+      technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Stripe'],
+      category: 'frontend',
+      githubUrl: 'https://github.com/johnsontakashi/saas-landing-mvp',
+      liveUrl: 'https://saas-landing-demo.vercel.app',
+      featured: false
+    },
+    {
+      id: 11,
+      title: 'Portfolio Dashboard MVP',
+      description: 'An interactive portfolio analytics dashboard with real-time visitor tracking, project performance metrics, and contact form management.',
+      image: '/images/project11.jpg',
+      technologies: ['Vue.js', 'Chart.js', 'Firebase', 'CSS3', 'Google Analytics'],
+      category: 'frontend',
+      githubUrl: 'https://github.com/johnsontakashi/portfolio-dashboard-mvp',
+      liveUrl: 'https://portfolio-dashboard-demo.netlify.app',
+      featured: false
+    },
+    {
+      id: 12,
+      title: 'Event Booking MVP',
+      description: 'A sleek event booking interface with calendar integration, seat selection, and payment processing for conferences and workshops.',
+      image: '/images/project12.jpg',
+      technologies: ['React', 'TypeScript', 'Material-UI', 'Calendar API', 'PayPal'],
+      category: 'frontend',
+      githubUrl: 'https://github.com/johnsontakashi/event-booking-mvp',
+      liveUrl: 'https://event-booking-demo.herokuapp.com',
+      featured: false
+    },
+    // Backend Projects
+    {
+      id: 13,
+      title: 'Multi-Tenant API Gateway',
+      description: 'A scalable API gateway with multi-tenant architecture, rate limiting, authentication, and real-time monitoring for enterprise applications.',
+      image: '/images/project13.jpg',
+      technologies: ['Node.js', 'Express', 'Redis', 'JWT', 'Docker', 'MongoDB'],
+      category: 'backend',
+      githubUrl: 'https://github.com/johnsontakashi/api-gateway',
+      liveUrl: 'https://api-gateway-demo.herokuapp.com/docs',
+      featured: false
+    },
+    {
+      id: 14,
+      title: 'Microservices Architecture',
+      description: 'A distributed microservices system with service discovery, load balancing, and automated deployment pipeline for high-traffic applications.',
+      image: '/images/project14.jpg',
+      technologies: ['Python', 'FastAPI', 'Docker', 'Kubernetes', 'PostgreSQL', 'RabbitMQ'],
+      category: 'backend',
+      githubUrl: 'https://github.com/johnsontakashi/microservices-system',
+      liveUrl: 'https://microservices-api.example.com',
+      featured: false
+    },
+    // Mobile Apps
+    {
+      id: 15,
+      title: 'Fitness Tracker (Flutter)',
+      description: 'A comprehensive fitness tracking app with workout plans, progress tracking, nutrition logging, and social features built with Flutter.',
+      image: '/images/project15.jpg',
+      technologies: ['Flutter', 'Dart', 'Firebase', 'Google Fit API', 'Stripe'],
+      category: 'mobile',
+      githubUrl: 'https://github.com/johnsontakashi/fitness-tracker-flutter',
+      liveUrl: 'https://play.google.com/store/apps/fitness-tracker',
+      featured: false
+    },
+    {
+      id: 16,
+      title: 'Food Delivery App (React Native)',
+      description: 'A full-featured food delivery application with real-time tracking, payment integration, and restaurant management dashboard.',
+      image: '/images/project16.jpg',
+      technologies: ['React Native', 'Redux', 'Firebase', 'Maps API', 'Stripe'],
+      category: 'mobile',
+      githubUrl: 'https://github.com/johnsontakashi/food-delivery-rn',
+      liveUrl: 'https://apps.apple.com/app/food-delivery-pro',
+      featured: false
+    },
+    {
+      id: 17,
+      title: 'Language Learning App (Flutter)',
+      description: 'An interactive language learning platform with AI-powered pronunciation feedback, gamification, and offline content support.',
+      image: '/images/project17.jpg',
+      technologies: ['Flutter', 'Dart', 'TensorFlow Lite', 'SQLite', 'Audio API'],
+      category: 'mobile',
+      githubUrl: 'https://github.com/johnsontakashi/language-learning-flutter',
+      liveUrl: 'https://play.google.com/store/apps/language-master',
+      featured: false
+    },
+    {
+      id: 18,
+      title: 'Expense Manager (React Native)',
+      description: 'A smart expense tracking app with receipt scanning, budget alerts, category insights, and multi-currency support.',
+      image: '/images/project18.jpg',
+      technologies: ['React Native', 'Expo', 'AsyncStorage', 'Camera API', 'Chart.js'],
+      category: 'mobile',
+      githubUrl: 'https://github.com/johnsontakashi/expense-manager-rn',
+      liveUrl: 'https://expo.dev/@johnsontakashi/expense-manager',
+      featured: false
+    },
+    {
+      id: 19,
+      title: 'Social Media App (Flutter)',
+      description: 'A modern social media platform with real-time messaging, story features, video sharing, and advanced privacy controls.',
+      image: '/images/project19.jpg',
+      technologies: ['Flutter', 'Dart', 'Firebase', 'Cloud Storage', 'WebRTC'],
+      category: 'mobile',
+      githubUrl: 'https://github.com/johnsontakashi/social-media-flutter',
+      liveUrl: 'https://apps.apple.com/app/social-connect-pro',
+      featured: false
     }
   ]
 

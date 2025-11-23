@@ -5,6 +5,7 @@ const Projects = () => {
   const [filter, setFilter] = useState('all')
   const [visibleProjects, setVisibleProjects] = useState(6)
   const [showCodeModal, setShowCodeModal] = useState(false)
+  const [showGithubModal, setShowGithubModal] = useState(false)
   const PROJECTS_PER_PAGE = 6
 
   const projects = [
@@ -252,6 +253,11 @@ const Projects = () => {
     setShowCodeModal(true)
   }
 
+  const handleGithubClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setShowGithubModal(true)
+  }
+
   return (
     <section id="projects" className="py-20 bg-gray-800/50">
       <div className="container mx-auto px-6">
@@ -426,17 +432,15 @@ const Projects = () => {
           <p className="text-gray-400 mb-6">
             Want to see more of my work? Check out my GitHub for additional projects and contributions.
           </p>
-          <a
-            href="https://github.com/johnsontakashi"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handleGithubClick}
             className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors duration-300 font-semibold"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
             </svg>
             View All Projects on GitHub
-          </a>
+          </button>
         </div>
       </div>
 
@@ -481,6 +485,53 @@ const Projects = () => {
                   className="flex-1 px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium"
                 >
                   Contact Admin
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* GitHub Access Modal */}
+      {showGithubModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-100">
+            <div className="p-6">
+              {/* Icon */}
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center">
+                  <svg className="w-8 h-8 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-white text-center mb-3">
+                GitHub Access Required
+              </h3>
+
+              {/* Message */}
+              <p className="text-gray-300 text-center leading-relaxed mb-6">
+                Before accessing, please review the project and request approval for the relevant information.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowGithubModal(false)}
+                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition-all duration-300 font-medium"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    setShowGithubModal(false)
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="flex-1 px-4 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-medium"
+                >
+                  Request Access
                 </button>
               </div>
             </div>

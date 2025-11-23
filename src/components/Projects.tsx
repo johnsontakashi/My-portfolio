@@ -462,7 +462,7 @@ const Projects = () => {
               {/* Message */}
               <p className="text-gray-300 text-center leading-relaxed mb-6">
                 First, click <span className="text-indigo-400 font-semibold">Live Demo</span> to check out the site. 
-                If you like it, ask the administrator for permission to use the site's code.
+                If you like it, ask the administrator for permission to use the site&apos;s code.
               </p>
 
               {/* Buttons */}

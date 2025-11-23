@@ -109,8 +109,8 @@ const Skills = () => {
         {/* Additional Info */}
         <div className="mt-16 text-center">
           <p className="text-gray-400 max-w-3xl mx-auto">
-            I'm constantly learning and adapting to new technologies. These skills represent my current expertise, 
-            but I'm always excited to explore new frameworks, languages, and tools that can help solve complex problems.
+            I&apos;m constantly learning and adapting to new technologies. These skills represent my current expertise, 
+            but I&apos;m always excited to explore new frameworks, languages, and tools that can help solve complex problems.
           </p>
         </div>
       </div>

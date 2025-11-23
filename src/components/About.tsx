@@ -39,20 +39,20 @@ const About = () => {
           <div className="space-y-6">
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-white">
-                Hello! I'm Johnson Takashi
+                Hello! I&apos;m Johnson Takashi
               </h3>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  I'm a passionate full-stack developer with expertise in web and mobile application development. 
+                  I&apos;m a passionate full-stack developer with expertise in web and mobile application development. 
                   I love creating digital experiences that are not only functional but also beautiful and intuitive.
                 </p>
                 <p>
                   With years of experience in modern technologies, I specialize in building scalable applications 
-                  using React, Next.js, Node.js, and various other cutting-edge tools. I'm always eager to learn 
+                  using React, Next.js, Node.js, and various other cutting-edge tools. I&apos;m always eager to learn 
                   new technologies and take on challenging projects.
                 </p>
                 <p>
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source 
+                  When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source 
                   projects, or sharing my knowledge with the developer community.
                 </p>
               </div>
